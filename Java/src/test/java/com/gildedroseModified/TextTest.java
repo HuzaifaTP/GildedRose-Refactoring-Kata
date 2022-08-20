@@ -13,10 +13,10 @@ import static org.junit.Assert.assertThat;
 public class TextTest {
     @Test
     public void preservesBehaviour() throws IOException {
-        assertThat(exerciseCode(5), equalTo(a5));
+        assertThat(defaultTextGeneratorCode(5), equalTo(textToBeTestedAgainst));
     }
 
-    private final static String a5 = "OMGHAI!\n" +
+    private final static String textToBeTestedAgainst = "OMGHAI!\n" +
         "-------- day 0 --------\n" +
         "name, sellIn, quality\n" +
         "+5 Dexterity Vest, 10, 20\n" +
@@ -78,20 +78,19 @@ public class TextTest {
         "Conjured Mana Cake, -1, 0\n" +
         "\n";
 
-    private String exerciseCode(int days) throws IOException {
+    private String defaultTextGeneratorCode(int days) throws IOException {
         Writer printStream = new StringWriter();
         println(printStream, "OMGHAI!");
 
         Item[] items = new Item[] {
-            new Item("+5 Dexterity Vest", 10, 20), //
-            new Item("Aged Brie", 2, 0), //
-            new Item("Elixir of the Mongoose", 5, 7), //
-            new Item("Sulfuras, Hand of Ragnaros", 0, 80), //
+            new Item("+5 Dexterity Vest", 10, 20),
+            new Item("Aged Brie", 2, 0),
+            new Item("Elixir of the Mongoose", 5, 7),
+            new Item("Sulfuras, Hand of Ragnaros", 0, 80),
             new Item("Sulfuras, Hand of Ragnaros", -1, 80),
             new Item("Backstage passes to a TAFKAL80ETC concert", 15, 20),
             new Item("Backstage passes to a TAFKAL80ETC concert", 10, 49),
             new Item("Backstage passes to a TAFKAL80ETC concert", 5, 49),
-            // this conjured item does not work properly yet
             new Item("Conjured Mana Cake", 3, 6) };
 
 
