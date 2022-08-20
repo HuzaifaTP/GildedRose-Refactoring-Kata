@@ -1,13 +1,13 @@
 package com.gildedroseModified;
 
-public class Conjured extends Item_Base {
+public class Conjured extends Update_Patterns_Dictionary {
+
+    private final Item item;
     public Conjured(Item item) {
-        super(item);
+        this.item = item;
     }
 
-    @Override
-    void decreaseQuality(Item item) {
-        super.decreaseQuality(item);
-        super.decreaseQuality(item);
+    public void updateQualityManually() {
+        ConjuredUpdatePattern(item);
     }
 }

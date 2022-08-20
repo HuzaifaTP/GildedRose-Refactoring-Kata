@@ -1,6 +1,6 @@
 package com.gildedroseModified;
 
-public class Item_Base extends Abstract_Functions_Universal {
+public class Item_Base extends Update_Patterns_Dictionary {
 
     private final Item item;
 
@@ -10,10 +10,6 @@ public class Item_Base extends Abstract_Functions_Universal {
 
     @Override
     public void updateQualityManually() {
-        decreaseQuality(item);
-        decrementSellIn(item);
-        if (hasExpired(item)) {
-            decreaseQuality(item);
-        }
+        BaseItemUpdatePattern(item);
     }
 }

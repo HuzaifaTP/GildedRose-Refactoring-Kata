@@ -1,6 +1,6 @@
 package com.gildedroseModified;
 
-public class BackStagePasses extends Abstract_Functions_Universal {
+public class BackStagePasses extends Update_Patterns_Dictionary {
 
     private final Item item;
 
@@ -10,22 +10,6 @@ public class BackStagePasses extends Abstract_Functions_Universal {
 
     @Override
     public void updateQualityManually() {
-        ageWell(item);
-        decrementSellIn(item);
-        if (hasExpired(item)) {
-            item.quality = 0;
-        }
-    }
-
-    private void ageWell(Item item) {
-        if (item.quality < 50) {
-            item.quality = item.quality + 1;
-            if (item.sellIn < 11) {
-                incrementQuality(item);
-            }
-            if (item.sellIn < 6) {
-                incrementQuality(item);
-            }
-        }
+        BackStagePassesUpdatePattern(item);
     }
 }
